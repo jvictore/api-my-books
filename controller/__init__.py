@@ -1,5 +1,3 @@
-# __all__=["user_controller", "product_controller"]
-
 import os
 import glob
 

@@ -4,9 +4,9 @@ import json
 
 class user_model():
     def __init__(self):
-        # Connections establishment code
+        # Connections
         try:
-            self.con = mysql.connector.connect(host="localhost", user="root", password="maracuja123", database="flask_tutorial")
+            self.con = mysql.connector.connect(host="localhost", user="root", password="maracuja123", database="api-my-books")
             self.con.autocommit=True
             self.cur = self.con.cursor(dictionary=True)
             print("Connection Successful")
@@ -14,30 +14,30 @@ class user_model():
         except:
             print("Some error.")
 
-    def user_getall_model(self):
+    def books_getall_model(self):
         # Query execution code
-        self.cur.execute("SELECT * FROM users;")
+        self.cur.execute("SELECT * FROM books;")
         result = self.cur.fetchall()
         if len(result) > 0:
-            return  make_response({"payload": result}, 200)
+            return  make_response({"result": result}, 200)
             # return json.dumps(result)
         else:
             return make_response({"message": "No data found"}, 204)
 
-    def user_addone_model(self, data):
-        self.cur.execute(f"INSERT INTO users(name, email, phone, role, password) VALUES ('{data['name']}', '{data['email']}', '{data['phone']}', '{data['role']}', '{data['password']}')")
-        return make_response({"message": "User created successfully."}, 201)
+    def books_add_model(self, data):
+        self.cur.execute(f"INSERT INTO books(name, author, language, genre, publisher, publication_date, pages) VALUES ('{data['name']}', '{data['author']}', '{data['language']}', '{data['genre']}', '{data['publisher']}', '{data['publication_date']}', '{data['pages']}')")
+        return make_response({"message": "Book added successfully."}, 201)
 
-    def user_update_model(self, data):
-        self.cur.execute(f"UPDATE users SET name='{data['name']}', email='{data['email']}', phone='{data['phone']}', role='{data['role']}', password='{data['password']}' WHERE id='{data['id']}'")
+    def books_update_model(self, data):
+        self.cur.execute(f"UPDATE books SET name='{data['name']}', author='{data['author']}', language='{data['language']}', genre='{data['genre']}', publisher='{data['publisher']}', publication_date='{data['publication_date']}', pages='{data['pages']}' WHERE id='{data['id']}'")
         if self.cur.rowcount > 0:
-            return make_response({"message": "User updated successfully."}, 201)
+            return make_response({"message": "Book updated successfully."}, 201)
         else:
             return make_response({"message": "Nothing to update."}, 202)
 
-    def user_delete_model(self, id):
-        self.cur.execute(f"DELETE FROM users WHERE id={id}")
+    def books_delete_model(self, id):
+        self.cur.execute(f"DELETE FROM books WHERE id={id}")
         if self.cur.rowcount > 0:
-            return make_response({"message": "User deleted successfully."}, 200)
+            return make_response({"message": "Book deleted successfully."}, 200)
         else:
             return make_response({"message": "Nothing to delete."}, 202)
