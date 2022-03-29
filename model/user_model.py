@@ -59,7 +59,31 @@ class user_model():
 
     # PUTS
     def books_update_model(self, data):
-        self.cur.execute(f"UPDATE books SET name='{data['name']}', author='{data['author']}', language='{data['language']}', genre='{data['genre']}', publisher='{data['publisher']}', publication_date='{data['publication_date']}', pages='{data['pages']}' WHERE id='{data['id']}'")
+        if data.get('id'):
+            if data.get('name'):
+                self.cur.execute(f"UPDATE books SET name='{data.get('name')}' WHERE id='{data.get('id')}'")
+
+            if data.get('author'):
+                self.cur.execute(f"UPDATE books SET author='{data.get('author')}' WHERE id='{data.get('id')}'")
+
+            if data.get('language'):
+                self.cur.execute(f"UPDATE books SET language='{data.get('language')}' WHERE id='{data.get('id')}'")
+
+            if data.get('genre'):
+                self.cur.execute(f"UPDATE books SET genre='{data.get('genre')}' WHERE id='{data.get('id')}'")
+
+            if data.get('publisher'):
+                self.cur.execute(f"UPDATE books SET publisher='{data.get('publisher')}' WHERE id='{data.get('id')}'")
+
+            if data.get('publication_date'):
+                self.cur.execute(f"UPDATE books SET publication_date='{data.get('publication_date')}' WHERE id='{data.get('id')}'")
+
+            if data.get('pages'):
+                self.cur.execute(f"UPDATE books SET pages='{data.get('pages')}' WHERE id='{data.get('id')}'")
+        
+        else:
+            return make_response({"message": "Field ID is missing. Nothing to update."}, 202)
+
         if self.cur.rowcount > 0:
             return make_response({"message": "Book updated successfully."}, 201)
         else:
