@@ -6,13 +6,13 @@ class user_model():
     def __init__(self):
         # Connections
         try:
-            self.con = mysql.connector.connect(host="localhost", user="root", password="maracuja123", database="api-my-books")
+            self.con = mysql.connector.connect(host="localhost", user="root", password="", database="my-books")
             self.con.autocommit=True
             self.cur = self.con.cursor(dictionary=True)
             print("Connection Successful")
 
         except:
-            print("Some error.")
+            print("Some error in database connection")
 
     # GETS
     def books_get_all_model(self):
