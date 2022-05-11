@@ -12,7 +12,7 @@ RUN apt-get update && apt-get upgrade
 WORKDIR /app
 COPY . /app
 
-RUN apt install libmysqlclient-dev python3-dev -y
+RUN apt install libmysqlclient-dev python3-dev --fix-missing -y
 RUN pip3 --no-cache-dir install -r requirements.txt
 
 ENV FLASK_APP=app.py
