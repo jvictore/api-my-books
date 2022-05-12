@@ -9,9 +9,9 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
  <a href="#objetivo">Objetivo</a> •
- <a href="#roadmap">Roadmap</a> • 
- <a href="#tecnologias">Tecnologias</a> • 
- <a href="#contribuicao">Contribuição</a> • 
+ <a href="#features">Features</a> • 
+ <a href="#prerequisitos">Pré-Requisitos</a> • 
+ <a href="#howtorun">How to run</a> • 
  <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
 
