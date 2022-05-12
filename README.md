@@ -8,15 +8,20 @@
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
- <a href="#objetivo">Objetivo</a> •
+ <a href="#objective">Objective</a> •
  <a href="#features">Features</a> • 
- <a href="#prerequisitos">Pré-Requisitos</a> • 
- <a href="#howtorun">How to run</a> • 
- <a href="#licenc-a">Licença</a> • 
- <a href="#autor">Autor</a>
+ <a href="#pre-requisites">Pre-Requisites</a> • 
+ <a href="#how-to-run">How to run</a> • 
+ <a href="#license">License</a> • 
+ <a href="#author">Author</a>
 
  <h4> 
 	🚧  Projeto em construção...  🚧
+</h4>
+	
+## Objective:
+<h4> 
+	Nothing Yet
 </h4>
 
 ## Features:
@@ -27,12 +32,12 @@
 - [x] Update a book by id.
 - [x] Delete a book by id.
 
-## Pré-requisitos:
+## Pre-requisites:
 
 Before starting you need to have installed the following tools:
 [Git](https://git-scm.com), [Python 3](https://www.python.org/downloads/), [Docker](https://docs.docker.com/desktop/), [Docker Compose](https://docs.docker.com/compose/). Also is nice to have a API Tool like [Postman](https://www.postman.com/downloads/) to interact with the API.
 
-## How to run
+## How-to-run
 
 ```bash
 # Clone this repo
@@ -58,6 +63,16 @@ $ docker-compose up -d
 # Password: 1234
 ```
 
-
-
+	
+## License
+<h4> 
+	Nothing Yet
+</h4>
+	
+## Author
+<h4> 
+	Nothing Yet
+</h4>
+	
+	
 <div>
