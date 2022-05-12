@@ -1,50 +1,36 @@
+from socket import socket
 from flask import make_response
 import sys
 
+import time
 import mysql.connector
 
 class user_model():
     def __init__(self):
         # Connections
         try:
-            self.mydb = mysql.connector.connect(
-                host="localhost",
+            time.sleep(10)
+            self.con = mysql.connector.connect(
+                host="db",
                 user="root",
                 password="root",
                 database="myBooks",
-                port="3306"
+                port=3306
             )
-            self.cur = self.mydb.cursor()
+            self.con.autocommit=True
+            self.cur = self.con.cursor(dictionary=True)
+            print("Connection Successful", file=sys.stderr)
 
         except Exception as e:
             print("Some error in database connection", file=sys.stderr)
             print (e, file=sys.stderr, end='\n\n')
 
-        # cursor.execute("SELECT * FROM user")
+                    # cursor.execute("SELECT * FROM user")
 
 #             self.con = mysql.connector.connect(host="localhost", user="root", password="root", database="my-books")
-# #             self.con = mysql.connector.connect(host="localhost", user="root", password="root", database="my_books", port="3307")
 #             self.con.autocommit=True
 #             self.cur = self.con.cursor(dictionary=True)
 #             print("Connection Successful")
-
-    #CONNECT
-    def connect(self):
-        # Connections
-        try:
-            print ("************************ ANTES ", file=sys.stderr)
-            self.con = mysql.connector.connect(host="localhost", user="root", password="root", database="my-books")
-            print ("************************ MEIO ", file=sys.stderr)
-            self.cur = self.con.cursor(pymysql.cursors.DictCursor)
-            print ("************************ DEPOIS ", file=sys.stderr)
-            print(self.cur, file=sys.stderr)
-            print("", file=sys.stderr)
-            return  make_response({"result", ""}, 200)
-
-        except Exception as e:
-            print("Some error in database connection")
-            print (e)
-            return  make_response({"result": ""}, 200)
 
     # GETS
     def books_get_all_model(self):
