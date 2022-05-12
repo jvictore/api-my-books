@@ -1,0 +1,9 @@
+add-ons/
+data-volume/
+db/
+venv/
+.gitignore
+createTables.txt
+docker-compose.yml
+Dockerfile
+README.md
