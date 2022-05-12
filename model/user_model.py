@@ -32,7 +32,6 @@ class user_model():
 
         if len(result) > 0:
             return  make_response({"result": result}, 200)
-            # return json.dumps(result)
         else:
             return make_response({"message": "No data found"}, 204)
 
@@ -42,7 +41,6 @@ class user_model():
 
         if len(result) > 0:
             return  make_response({"result": result}, 200)
-            # return json.dumps(result)
         else:
             return make_response({"message": "No data found"}, 204)
 
@@ -57,7 +55,6 @@ class user_model():
 
         if len(result) > 0:
             return  make_response({"total": sum }, 200)
-            # return json.dumps(result)
         else:
             return make_response({"message": "No data found"}, 204)
 
