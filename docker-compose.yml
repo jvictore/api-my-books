@@ -8,7 +8,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: myBooks
     volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro
+      - ./db:/docker-entrypoint-initdb.d/
+      - ./data-volume:/var/lib/mysql
     command: --init-file /docker-entrypoint-initdb.d/init.sql
     expose: 
       - "3306"
@@ -23,5 +24,9 @@ services:
       - db
     networks:
       - app-db
+
 networks:
   app-db:
+
+volumes:
+  data_volume:
