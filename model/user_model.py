@@ -25,13 +25,6 @@ class user_model():
             print("Some error in database connection", file=sys.stderr)
             print (e, file=sys.stderr, end='\n\n')
 
-                    # cursor.execute("SELECT * FROM user")
-
-#             self.con = mysql.connector.connect(host="localhost", user="root", password="root", database="my-books")
-#             self.con.autocommit=True
-#             self.cur = self.con.cursor(dictionary=True)
-#             print("Connection Successful")
-
     # GETS
     def books_get_all_model(self):
         self.cur.execute("SELECT * FROM books;")

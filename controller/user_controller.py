@@ -14,7 +14,6 @@ if __name__ == "__main__":
 @auth.login_required
 def books_get_all_controller():
     print("DENTRO DA ROTA GETALL", file=sys.stderr)
-    # return "MEU RETORNO"
     return obj.books_get_all_model()
 
 @app.route('/books/getone/<id>')
