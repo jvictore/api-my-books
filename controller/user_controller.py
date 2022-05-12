@@ -2,6 +2,7 @@ from app import app, auth
 from app import app
 from model.user_model import user_model
 from flask import request
+import sys
 
 obj = user_model()
 
@@ -12,6 +13,8 @@ if __name__ == "__main__":
 @app.route('/books/getall')
 @auth.login_required
 def books_get_all_controller():
+    print("DENTRO DA ROTA GETALL", file=sys.stderr)
+    # return "MEU RETORNO"
     return obj.books_get_all_model()
 
 @app.route('/books/getone/<id>')
