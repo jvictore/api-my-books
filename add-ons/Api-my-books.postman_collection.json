@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "69ad7997-2476-4959-982e-d3400ae582ed",
+		"name": "Api-my-books",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books/getall",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "One Book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books/getone/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"getone",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Total Pages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books/gettotalpages",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"gettotalpages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "jv",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Entendendo Algoritmos",
+							"type": "default"
+						},
+						{
+							"key": "author",
+							"value": "Aditya Y. Bhargava",
+							"type": "default"
+						},
+						{
+							"key": "language",
+							"value": "Portuguese",
+							"type": "default"
+						},
+						{
+							"key": "genre",
+							"value": "Technology",
+							"type": "default"
+						},
+						{
+							"key": "publisher",
+							"value": "Novatec",
+							"type": "default"
+						},
+						{
+							"key": "publication_date",
+							"value": "24/04/2017",
+							"type": "default"
+						},
+						{
+							"key": "pages",
+							"value": "264",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/books/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "jv",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Entendendo Algoritmos",
+							"type": "default"
+						},
+						{
+							"key": "author",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "language",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "genre",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "publisher",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "publication_date",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "pages",
+							"value": "",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/books/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "jv",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
