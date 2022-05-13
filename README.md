@@ -1,12 +1,22 @@
 # API My Books
+<a href="https://www.python.org/downloads/">
+<img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
+</a>
+<a href="https://flask.palletsprojects.com/en/2.1.x/">
+<img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white">
+</a>
+<a href="https://hub.docker.com/_/mysql">
+<img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white">
+</a>
+<a href="https://docs.docker.com/desktop/">
+<img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
+</a>
+
 ## Flask REST API to organize the books read.
 
 <div align="left">
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
 
  <a href="#objective">Objective</a> •
  <a href="#features">Features</a> • 
@@ -57,16 +67,20 @@ $ docker-compose build --no-cache
 
 # Initialize the application
 $ docker-compose up -d
-
-# The Flask REST API will initialize on port 5000.
-# Access the application by <http://localhost:5000/>
-
-# You'll need the auth user/password, that by default is:
-# User: 	user
-# Password: 1234
-	
-# To use the API you can open Postman and import the collection located in: api-my-books/add-ons/Api-my-books.postman_collection.json
 ```
+The Flask REST API will initialize on port 5000.
+Access the application by <http://localhost:5000/>
+
+You'll need the auth user/password, that by default is:
+	
+- User:     user
+	
+- Password: 1234
+	
+To use the API you can open Postman and import the collection located in: 
+	
+- api-my-books/add-ons/Api-my-books.postman_collection.json
+
 ## How-to-terminate
 ```bash
 # Once you have use the application you have to terminate it
