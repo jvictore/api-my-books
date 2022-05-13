@@ -181,6 +181,26 @@
 			"response": []
 		},
 		{
+			"name": "How many hours",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books/gethours/5",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"gethours",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add Book",
 			"request": {
 				"method": "POST",

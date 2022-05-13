@@ -78,12 +78,25 @@ class user_model():
         self.cur.execute("SELECT pages FROM books;")
         result = self.cur.fetchall()
         sum = 0
-
         for page in result:
             sum += page['pages']
 
         if len(result) > 0:
             return  make_response({"total": sum }, 200)
+        else:
+            return make_response({"message": "No data found"}, 204)
+
+    def books_get_hours_model(self, avgHourPerPage):
+        self.cur.execute("SELECT pages FROM books;")
+        result = self.cur.fetchall()
+        sum = 0
+        for page in result:
+            sum += page['pages']
+
+        total = sum * int(avgHourPerPage)
+
+        if len(result) > 0:
+            return  make_response({"total": total }, 200)
         else:
             return make_response({"message": "No data found"}, 204)
 

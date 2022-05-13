@@ -46,7 +46,7 @@
 - [x] Remove a book by id.
 - [x] Remove all books.
 - [x] Get total of pages read of all books.
-- [ ] Get how many hours I've spent reading.
+- [x] Get how many hours I spent reading.
 
 ## Pre-requisites:
 
