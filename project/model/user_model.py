@@ -35,6 +35,26 @@ class user_model():
         else:
             return make_response({"message": "No data found"}, 204)
 
+    def books_get_all_author_model(self, data):
+        author = data['author'].title().strip()
+        self.cur.execute(f"SELECT * FROM books WHERE author='{author}';")
+        result = self.cur.fetchall()
+
+        if len(result) > 0:
+            return  make_response({"result": result}, 200)
+        else:
+            return make_response({"message": "No data found"}, 204)
+
+    def books_get_all_publisher_model(self, data):
+        publisher = data['publisher'].title().strip()
+        self.cur.execute(f"SELECT * FROM books WHERE publisher='{publisher}';")
+        result = self.cur.fetchall()
+
+        if len(result) > 0:
+            return  make_response({"result": result}, 200)
+        else:
+            return make_response({"message": "No data found"}, 204)
+
     def books_get_one_model(self, id):
         self.cur.execute(f"SELECT * FROM books WHERE id = {id};")
         result = self.cur.fetchall()
@@ -57,17 +77,6 @@ class user_model():
             return  make_response({"total": sum }, 200)
         else:
             return make_response({"message": "No data found"}, 204)
-
-    def books_get_all_author_model(self, data):
-        author = data['author'].title().strip()
-        self.cur.execute(f"SELECT * FROM books WHERE author='{author}';")
-        result = self.cur.fetchall()
-
-        if len(result) > 0:
-            return  make_response({"result": result}, 200)
-        else:
-            return make_response({"message": "No data found"}, 204)
-    
 
 
     # POSTS 

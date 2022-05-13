@@ -15,20 +15,26 @@ if __name__ == "__main__":
 def books_get_all_controller():
     return obj.books_get_all_model()
 
+@app.route('/books/getall/author')
+@auth.login_required
+def books_get_all_author_controller():
+    return obj.books_get_all_author_model(request.form)
+
+@app.route('/books/getall/publisher')
+@auth.login_required
+def books_get_all_publisher_controller():
+    return obj.books_get_all_publisher_model(request.form)
+
 @app.route('/books/getone/<id>')
 @auth.login_required
 def books_get_one_controller(id):
     return obj.books_get_one_model(id)
 
+
 @app.route('/books/gettotalpages')
 @auth.login_required
 def books_get_total_pages_controller():
     return obj.books_get_total_pages_model()
-
-@app.route('/books/getall/author')
-@auth.login_required
-def books_get_all_author_controller():
-    return obj.books_get_all_author_model(request.form)
 
 
 # POSTS

@@ -76,6 +76,39 @@
 			"response": []
 		},
 		{
+			"name": "List All Books by publisher",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "author",
+							"value": "gustavo cerbasi",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/books/getall/author",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"getall",
+						"author"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "One Book",
 			"request": {
 				"method": "GET",
