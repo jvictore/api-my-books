@@ -50,3 +50,8 @@ def books_update_controller():
 @auth.login_required
 def books_remove_controller(id):
     return obj.books_remove_model(id)
+
+@app.route('/books/removeall', methods=['DELETE'])
+@auth.login_required
+def books_remove_all_controller():
+    return obj.books_remove_all_model()

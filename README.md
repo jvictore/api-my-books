@@ -31,6 +31,7 @@
 - [x] Add new book.
 - [x] Update a book by id.
 - [x] Remove a book by id.
+- [x] Remove all books.
 
 ## Pre-requisites:
 

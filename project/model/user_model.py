@@ -118,3 +118,10 @@ class user_model():
             return make_response({"message": "Book removed successfully."}, 200)
         else:
             return make_response({"message": "Nothing to remove."}, 202)
+
+    def books_remove_all_model(self):
+        self.cur.execute(f"DELETE FROM books;")
+        if self.cur.rowcount > 0:
+            return make_response({"message": "Books removed successfully."}, 200)
+        else:
+            return make_response({"message": "Nothing to remove."}, 202)
