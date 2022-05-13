@@ -12,16 +12,15 @@
  <a href="#features">Features</a> • 
  <a href="#pre-requisites">Pre-Requisites</a> • 
  <a href="#how-to-run">How to run</a> • 
- <a href="#license">License</a> • 
- <a href="#author">Author</a>
+ <a href="#how-to-terminate">How to terminate</a> • 
 
  <h4> 
-	🚧  Projeto em construção...  🚧
+	🚧  Project in development...  🚧
 </h4>
 	
 ## Objective:
 <h4> 
-	Nothing Yet
+	The objective of this project is to understand how a modern API based on microservices is developed and how it works. The project is an API which you can interact to store, list, update and remove the books you have read. Different features like "Get total of pages read of all books" will be added over time.
 </h4>
 
 ## Features:
@@ -35,7 +34,7 @@
 ## Pre-requisites:
 
 Before starting you need to have installed the following tools:
-[Git](https://git-scm.com), [Python 3](https://www.python.org/downloads/), [Docker](https://docs.docker.com/desktop/), [Docker Compose](https://docs.docker.com/compose/). Also is nice to have a API Tool like [Postman](https://www.postman.com/downloads/) to interact with the API.
+[Git](https://git-scm.com), [Python 3](https://www.python.org/downloads/), [Docker](https://docs.docker.com/desktop/), [Docker Compose](https://docs.docker.com/compose/). It is algo useful to have an API Tool like [Postman](https://www.postman.com/downloads/) to interact with the API.
 
 ## How-to-run
 
@@ -61,18 +60,14 @@ $ docker-compose up -d
 # You'll need the auth user/password, that by default is:
 # User: 	user
 # Password: 1234
+	
+# To use the API you can open Postman and import the collection located in: api-my-books/add-ons/Api-my-books.postman_collection.json
 ```
-
-	
-## License
-<h4> 
-	Nothing Yet
-</h4>
-	
-## Author
-<h4> 
-	Nothing Yet
-</h4>
-	
+## How-to-terminate
+```bash
+# Once you have use the application you have to terminate it
+# Use the Docker Compose to do it
+$ docker-compose down
+```
 	
 <div>
