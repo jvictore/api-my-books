@@ -27,9 +27,10 @@
 - [x] Get all books read.
 - [x] Get one specific book by id.
 - [x] Get total of pages read of all books.
+- [x] Get all books by author name.
 - [x] Add new book.
 - [x] Update a book by id.
-- [x] Delete a book by id.
+- [x] Remove a book by id.
 
 ## Pre-requisites:
 

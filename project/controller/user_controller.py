@@ -25,6 +25,11 @@ def books_get_one_controller(id):
 def books_get_total_pages_controller():
     return obj.books_get_total_pages_model()
 
+@app.route('/books/getall/author')
+@auth.login_required
+def books_get_all_author_controller():
+    return obj.books_get_all_author_model(request.form)
+
 
 # POSTS
 @app.route('/books/add', methods=['POST'])
@@ -41,7 +46,7 @@ def books_update_controller():
 
 
 # DELETES
-@app.route('/books/delete/<id>', methods=['DELETE'])
+@app.route('/books/remove/<id>', methods=['DELETE'])
 @auth.login_required
-def books_delete_controller(id):
-    return obj.books_delete_model(id)
+def books_remove_controller(id):
+    return obj.books_remove_model(id)

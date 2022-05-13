@@ -58,10 +58,23 @@ class user_model():
         else:
             return make_response({"message": "No data found"}, 204)
 
+    def books_get_all_author_model(self, data):
+        author = data['author'].title().strip()
+        self.cur.execute(f"SELECT * FROM books WHERE author='{author}';")
+        result = self.cur.fetchall()
+
+        if len(result) > 0:
+            return  make_response({"result": result}, 200)
+        else:
+            return make_response({"message": "No data found"}, 204)
+    
+
 
     # POSTS 
     def books_add_model(self, data):
-        self.cur.execute(f"INSERT INTO books(name, author, language, genre, publisher, publication_date, pages) VALUES ('{data['name']}', '{data['author']}', '{data['language']}', '{data['genre']}', '{data['publisher']}', '{data['publication_date']}', '{data['pages']}')")
+        # Capitalize the first letter to better compare in other routes
+        author = data[author].title().strip()
+        self.cur.execute(f"INSERT INTO books(name, author, language, genre, publisher, publication_date, pages) VALUES ('{data['name']}', '{author}', '{data['language']}', '{data['genre']}', '{data['publisher']}', '{data['publication_date']}', '{data['pages']}')")
         return make_response({"message": "Book added successfully."}, 201)
 
 
@@ -99,9 +112,9 @@ class user_model():
 
     
     # DELETES
-    def books_delete_model(self, id):
+    def books_remove_model(self, id):
         self.cur.execute(f"DELETE FROM books WHERE id={id}")
         if self.cur.rowcount > 0:
-            return make_response({"message": "Book deleted successfully."}, 200)
+            return make_response({"message": "Book removed successfully."}, 200)
         else:
-            return make_response({"message": "Nothing to delete."}, 202)
+            return make_response({"message": "Nothing to remove."}, 202)
