@@ -53,16 +53,20 @@ $ docker-compose build --no-cache
 
 # Initialize the application
 $ docker-compose up -d
-
-# The Flask REST API will initialize on port 5000.
-# Access the application by <http://localhost:5000/>
-
-# You'll need the auth user/password, that by default is:
-# User: 	user
-# Password: 1234
-	
-# To use the API you can open Postman and import the collection located in: api-my-books/add-ons/Api-my-books.postman_collection.json
 ```
+The Flask REST API will initialize on port 5000.
+Access the application by <http://localhost:5000/>
+
+You'll need the auth user/password, that by default is:
+	
+- User:     user
+	
+- Password: 1234
+	
+To use the API you can open Postman and import the collection located in: 
+	
+- api-my-books/add-ons/Api-my-books.postman_collection.json
+
 ## How-to-terminate
 ```bash
 # Once you have use the application you have to terminate it
