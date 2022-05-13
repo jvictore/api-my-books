@@ -43,6 +43,39 @@
 			"response": []
 		},
 		{
+			"name": "List All Books by author",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "author",
+							"value": "gustavo cerbasi",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/books/getall/author",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"getall",
+						"author"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "One Book",
 			"request": {
 				"method": "GET",
@@ -84,21 +117,6 @@
 		{
 			"name": "Add Book",
 			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "123",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "jv",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -106,12 +124,12 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "Entendendo Algoritmos",
+							"value": "Investimentos Inteligentes",
 							"type": "default"
 						},
 						{
 							"key": "author",
-							"value": "Aditya Y. Bhargava",
+							"value": "Gustavo Cerbasi",
 							"type": "default"
 						},
 						{
@@ -121,17 +139,17 @@
 						},
 						{
 							"key": "genre",
-							"value": "Technology",
+							"value": "Finances",
 							"type": "default"
 						},
 						{
 							"key": "publisher",
-							"value": "Novatec",
+							"value": "Sextante",
 							"type": "default"
 						},
 						{
 							"key": "publication_date",
-							"value": "24/04/2017",
+							"value": "24/04/2013",
 							"type": "default"
 						},
 						{
@@ -139,7 +157,12 @@
 							"value": "264",
 							"type": "default"
 						}
-					]
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:5000/books/add",
@@ -159,21 +182,6 @@
 		{
 			"name": "Update Book",
 			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "123",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "jv",
-							"type": "string"
-						}
-					]
-				},
 				"method": "PUT",
 				"header": [],
 				"body": {
@@ -262,12 +270,12 @@
 		"basic": [
 			{
 				"key": "password",
-				"value": "123",
+				"value": "1234",
 				"type": "string"
 			},
 			{
 				"key": "username",
-				"value": "jv",
+				"value": "user",
 				"type": "string"
 			}
 		]
