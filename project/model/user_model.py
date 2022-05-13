@@ -64,6 +64,15 @@ class user_model():
         else:
             return make_response({"message": "No data found"}, 204)
 
+    def books_get_one_name_model(self, data):
+        name = data['name'].title().strip()
+        self.cur.execute(f"SELECT * FROM books WHERE name = '{name}';")
+        result = self.cur.fetchall()
+
+        if len(result) > 0:
+            return  make_response({"result": result}, 200)
+        else:
+            return make_response({"message": "No data found"}, 204)
 
     def books_get_total_pages_model(self):
         self.cur.execute("SELECT pages FROM books;")

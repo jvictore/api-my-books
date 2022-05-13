@@ -30,6 +30,10 @@ def books_get_all_publisher_controller():
 def books_get_one_controller(id):
     return obj.books_get_one_model(id)
 
+@app.route('/books/getone/name')
+@auth.login_required
+def books_get_one_name_controller():
+    return obj.books_get_one_name_model(request.form)
 
 @app.route('/books/gettotalpages')
 @auth.login_required

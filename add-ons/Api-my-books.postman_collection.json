@@ -24,7 +24,7 @@
 			"response": []
 		},
 		{
-			"name": "List All Books",
+			"name": "All Books",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -43,7 +43,7 @@
 			"response": []
 		},
 		{
-			"name": "List All Books by author",
+			"name": "All Books by author",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -76,7 +76,7 @@
 			"response": []
 		},
 		{
-			"name": "List All Books by publisher",
+			"name": "All Books by publisher",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -87,14 +87,14 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "author",
-							"value": "gustavo cerbasi",
+							"key": "publisher",
+							"value": "sextante",
 							"type": "default"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:5000/books/getall/author",
+					"raw": "localhost:5000/books/getall/publisher",
 					"host": [
 						"localhost"
 					],
@@ -102,14 +102,14 @@
 					"path": [
 						"books",
 						"getall",
-						"author"
+						"publisher"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "One Book",
+			"name": "One Book by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -123,6 +123,39 @@
 						"books",
 						"getone",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "One Book by name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "investimentos inteligentes",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/books/getone/name",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"getone",
+						"name"
 					]
 				}
 			},
