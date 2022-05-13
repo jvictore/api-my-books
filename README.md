@@ -37,13 +37,16 @@
 - [x] Get all books read.
 - [x] Get all books by author name.
 - [x] Get all books by publisher.
+- [ ] Get all books by genre.
+- [ ] Get all books before date.
 - [x] Get one specific book by id.
 - [x] Get one specific book by name.
-- [x] Get total of pages read of all books.
 - [x] Add new book.
 - [x] Update a book by id.
 - [x] Remove a book by id.
 - [x] Remove all books.
+- [x] Get total of pages read of all books.
+- [ ] Get how many hours I've spent reading.
 
 ## Pre-requisites:
 
