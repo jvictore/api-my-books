@@ -84,6 +84,8 @@ To use the API you can open Postman and import the collection located in:
 	
 - api-my-books/add-ons/Api-my-books.postman_collection.json
 
+The API format can be viewed after import the collection in postman.
+	
 ## How-to-terminate
 ```bash
 # Once you have use the application you have to terminate it
