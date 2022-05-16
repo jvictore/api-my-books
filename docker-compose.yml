@@ -11,8 +11,6 @@ services:
       - ./init-db:/docker-entrypoint-initdb.d/
       - ./data-volume:/var/lib/mysql
     command: --init-file /docker-entrypoint-initdb.d/init.sql
-    expose: 
-      - "3306"
     networks:
       - app-db
   app:

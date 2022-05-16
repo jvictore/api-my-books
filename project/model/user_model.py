@@ -34,6 +34,8 @@ class user_model():
             return  make_response({"result": result}, 200)
         else:
             return make_response({"message": "No data found"}, 204)
+        
+        #erro
 
     def books_get_all_author_model(self, data):
         author = data['author'].title().strip()
@@ -111,28 +113,43 @@ class user_model():
 
     # PUTS
     def books_update_model(self, data):
+        # updateString = "UPDATE books SET "
+        # finalUpdateString = f" WHERE id='{data.get('id')}';"
         if data.get('id'):
             if data.get('name'):
                 self.cur.execute(f"UPDATE books SET name='{data.get('name')}' WHERE id='{data.get('id')}'")
+                # updateString = updateString + f"name='{data.get('name')}',"
 
             if data.get('author'):
                 self.cur.execute(f"UPDATE books SET author='{data.get('author')}' WHERE id='{data.get('id')}'")
+                # updateString = updateString + f"author='{data.get('author')}',"
 
             if data.get('language'):
                 self.cur.execute(f"UPDATE books SET language='{data.get('language')}' WHERE id='{data.get('id')}'")
+                # updateString = updateString + f"language='{data.get('language')}',"
 
             if data.get('genre'):
                 self.cur.execute(f"UPDATE books SET genre='{data.get('genre')}' WHERE id='{data.get('id')}'")
+                # updateString = updateString + f"genre='{data.get('genre')}',"
 
             if data.get('publisher'):
                 self.cur.execute(f"UPDATE books SET publisher='{data.get('publisher')}' WHERE id='{data.get('id')}'")
+                # updateString = updateString + f"publisher='{data.get('publisher')}',"
 
             if data.get('publication_date'):
                 self.cur.execute(f"UPDATE books SET publication_date='{data.get('publication_date')}' WHERE id='{data.get('id')}'")
+                # updateString = updateString + f"publication_date='{data.get('publication_date')}',"
 
             if data.get('pages'):
                 self.cur.execute(f"UPDATE books SET pages='{data.get('pages')}' WHERE id='{data.get('id')}'")
-        
+                # updateString = updateString + f"pages='{data.get('pages')}',"
+            
+            # Remove last comma from the updateString
+            # updateString = updateString[:-1]
+            # updateString = updateString + finalUpdateString
+            # Execute update statement
+            # self.cur.execute(updateString)
+
         else:
             return make_response({"message": "Field ID is missing. Nothing to update."}, 202)
 
