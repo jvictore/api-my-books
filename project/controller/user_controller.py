@@ -9,6 +9,7 @@ import sys
 from flask_sqlalchemy import SQLAlchemy
 
 obj = user_model()
+obj2 = books()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
@@ -17,12 +18,12 @@ if __name__ == "__main__":
 @app.route('/books/getall')
 @auth.login_required
 def books_get_all_controller():
-    return books.get_all()
+    return obj2.get_all()
 
 @app.route('/books/getall/author')
 @auth.login_required
 def books_get_all_author_controller():
-    return obj.books_get_all_author_model(request.form)
+    return obj2.get_all_author(request.form)
 
 @app.route('/books/getall/publisher')
 @auth.login_required

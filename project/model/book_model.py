@@ -27,5 +27,16 @@ class books(db.Model):
     def get_all(self):
         books_objeto = self.query.all()
         books_json = [book.to_json() for book in books_objeto]
+        final_json = json.dumps(books_json)
 
-        return Response(json.dumps(books_json))
+        return Response(final_json)
+
+    def get_all_author(self, data):
+        author = data['author'].title().strip()
+        books_objeto = self.query.filter_by(author=author)
+        books_json = [book.to_json() for book in books_objeto]
+        final_json = json.dumps(books_json)
+
+        return Response(final_json)
+
+    
