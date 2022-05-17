@@ -1,18 +1,20 @@
+from enum import auto
 from urllib import response
 from flask import Flask, Response
 from flask_httpauth import HTTPBasicAuth
 from flask import make_response
 from flask_sqlalchemy import SQLAlchemy
+import json
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/myBooks'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@db:3306/myBooks'
 # auth = HTTPBasicAuth()
 
 db = SQLAlchemy(app)
 
-class BookAlchemy(db.Model):
+class books(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   author = db.Column(db.String(100))
   genre = db.Column(db.String(100))
@@ -21,13 +23,23 @@ class BookAlchemy(db.Model):
   publication_date = db.Column(db.String(100))
   publisher = db.Column(db.String(100))
 
+  def to_json(self):
+    return {"id": self.id,
+            "author": self.author,
+            "genre": self.genre,
+            "language": self.language,
+            "name": self.name,
+            "publication_date": self.publication_date,
+            "publisher": self.publisher}
+
 
 @app.route("/livros", methods=["GET"])
 def seleciona_livros():
-  livros_classe = BookAlchemy.query.all()
-  print(livros_classe)
+  books_objeto = books.query.all()
+  books_json = [book.to_json() for book in books_objeto]
+  print(books_json)
 
-  return Response()
+  return Response(json.dumps(books_json))
   
 
 app.run()
