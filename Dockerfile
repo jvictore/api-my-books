@@ -3,6 +3,7 @@ COPY ./project /app
 WORKDIR /app
 
 RUN apk add build-base
+RUN apk add mariadb-dev
 RUN pip install -r requirements.txt
 
 ENV FLASK_APP=app.py
