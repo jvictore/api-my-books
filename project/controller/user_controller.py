@@ -45,10 +45,10 @@ def books_get_one_name_controller():
 def books_get_total_pages_controller():
     return obj2.get_total_pages()
 
-@app.route('/books/gethours/<avgHourPerPage>')
+@app.route('/books/gethours/<avgPerPage>')
 @auth.login_required
-def books_get_hours_controller(avgHourPerPage):
-    return obj.books_get_hours_model(avgHourPerPage)
+def books_get_hours_controller(avgPerPage):
+    return obj2.get_reading_time(avgPerPage)
 
 # POSTS
 @app.route('/books/add', methods=['POST'])

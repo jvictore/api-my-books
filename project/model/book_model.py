@@ -68,6 +68,7 @@ class books(db.Model):
         return Response(final_json)
 
     def get_total_pages(self):
-        sum = db.session.query(db.func.sum(books.pages)).scalar()
+        pages = db.session.query(db.func.sum(books.pages)).scalar()
+        print(str(pages), file=sys.stderr)
         
-        return Response({"total": sum })
+        return make_response({"total": pages }, 200)
