@@ -39,4 +39,10 @@ class books(db.Model):
 
         return Response(final_json)
 
-    
+    def get_all_publisher(self, data):
+        publisher = data['publisher'].title().strip()
+        books_objeto = self.query.filter_by(publisher=publisher)
+        books_json = [book.to_json() for book in books_objeto]
+        final_json = json.dumps(books_json)
+
+        return Response(final_json)

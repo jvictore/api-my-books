@@ -28,7 +28,7 @@ def books_get_all_author_controller():
 @app.route('/books/getall/publisher')
 @auth.login_required
 def books_get_all_publisher_controller():
-    return obj.books_get_all_publisher_model(request.form)
+    return obj2.get_all_publisher(request.form)
 
 @app.route('/books/getone/<id>')
 @auth.login_required
