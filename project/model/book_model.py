@@ -1,5 +1,7 @@
 from socket import socket
+import sys
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 from flask import make_response, Response
 import json
 
@@ -14,6 +16,8 @@ class books(db.Model):
     name = db.Column(db.String(100))
     publication_date = db.Column(db.String(100))
     publisher = db.Column(db.String(100))
+    pages = db.Column(db.Integer)
+    
 
     def to_json(self):
         return {"id": self.id,
@@ -22,7 +26,8 @@ class books(db.Model):
                 "language": self.language,
                 "name": self.name,
                 "publication_date": self.publication_date,
-                "publisher": self.publisher}
+                "publisher": self.publisher,
+                "pages": self.pages}
 
     def get_all(self):
         books_objeto = self.query.all()
@@ -61,3 +66,8 @@ class books(db.Model):
         final_json = json.dumps(books_json)
 
         return Response(final_json)
+
+    def get_total_pages(self):
+        sum = db.session.query(db.func.sum(books.pages)).scalar()
+        
+        return Response({"total": sum })

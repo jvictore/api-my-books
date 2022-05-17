@@ -43,7 +43,7 @@ def books_get_one_name_controller():
 @app.route('/books/gettotalpages')
 @auth.login_required
 def books_get_total_pages_controller():
-    return obj.books_get_total_pages_model()
+    return obj2.get_total_pages()
 
 @app.route('/books/gethours/<avgHourPerPage>')
 @auth.login_required
