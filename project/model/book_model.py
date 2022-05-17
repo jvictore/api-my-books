@@ -50,5 +50,14 @@ class books(db.Model):
     def get_one_id(self, id):
         books_objeto = self.query.filter_by(id=id).first()
         books_json = books_objeto.to_json()
+        final_json = json.dumps(books_json)
 
-        return Response(books_json)
+        return Response(final_json)
+
+    def get_one_name(self, data):
+        name = data['name'].title().strip()
+        books_objeto = self.query.filter_by(name=name).first()
+        books_json = books_objeto.to_json()
+        final_json = json.dumps(books_json)
+
+        return Response(final_json)

@@ -38,7 +38,7 @@ def books_get_one_controller(id):
 @app.route('/books/getone/name')
 @auth.login_required
 def books_get_one_name_controller():
-    return obj.books_get_one_name_model(request.form)
+    return obj2.get_one_name(request.form)
 
 @app.route('/books/gettotalpages')
 @auth.login_required
