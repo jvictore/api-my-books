@@ -33,7 +33,7 @@ def books_get_all_publisher_controller():
 @app.route('/books/getone/<id>')
 @auth.login_required
 def books_get_one_controller(id):
-    return obj.books_get_one_model(id)
+    return obj2.get_one_id(id)
 
 @app.route('/books/getone/name')
 @auth.login_required

@@ -46,3 +46,9 @@ class books(db.Model):
         final_json = json.dumps(books_json)
 
         return Response(final_json)
+
+    def get_one_id(self, id):
+        books_objeto = self.query.filter_by(id=id).first()
+        books_json = books_objeto.to_json()
+
+        return Response(books_json)
