@@ -3,6 +3,7 @@ from app import app
 from model.user_model import user_model
 from flask import request
 import sys
+from flask_sqlalchemy import SQLAlchemy
 
 obj = user_model()
 

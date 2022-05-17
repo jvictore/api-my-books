@@ -1,10 +1,15 @@
 from flask import Flask
 from flask_httpauth import HTTPBasicAuth
 from flask import make_response
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/myBooks'
 auth = HTTPBasicAuth()
+
+db = SQLAlchemy(app)
 
 @auth.verify_password
 def authenticate (username, password):

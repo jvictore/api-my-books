@@ -1,6 +1,8 @@
 FROM python:3.8.5-alpine
 COPY ./project /app
 WORKDIR /app
+
+RUN apk add build-base
 RUN pip install -r requirements.txt
 
 ENV FLASK_APP=app.py
