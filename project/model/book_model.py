@@ -8,8 +8,8 @@ import json
 
 db = SQLAlchemy()
 
-class books(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+class Books(db.Model):
+    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
     author = db.Column(db.String(100))
     genre = db.Column(db.String(100))
     language = db.Column(db.String(100))
@@ -29,6 +29,8 @@ class books(db.Model):
                 "publisher": self.publisher,
                 "pages": self.pages}
 
+
+    # GETS
     def get_all(self):
         books_objeto = self.query.all()
         books_json = [book.to_json() for book in books_objeto]
@@ -68,13 +70,34 @@ class books(db.Model):
         return Response(final_json)
 
     def get_total_pages(self):
-        pages = db.session.query(db.func.sum(books.pages)).scalar()
+        pages = db.session.query(db.func.sum(Books.pages)).scalar()
         print(str(pages), file=sys.stderr)
         
         return make_response({"Total pages": pages }, 200)
 
     def get_total_reading_time(self, avg):
-        pages = db.session.query(db.func.sum(books.pages)).scalar()
+        pages = db.session.query(db.func.sum(Books.pages)).scalar()
         reading_time = int(pages) * int(avg)
         
         return make_response({"Reading time": reading_time }, 200)
+
+
+    # POSTS
+
+    def add(self, body):
+        try:
+            book = Books(author = body["author"],
+                        genre = body["genre"],
+                        language = body["language"],
+                        name = body["name"],
+                        publication_date = body["publication_date"],
+                        publisher = body["publisher"],
+                        pages = body["pages"]
+                    )
+            db.session.add(book)
+            db.session.commit()
+            return make_response({"message": "Book added successfully."}, 201)
+        
+        except Exception as e:
+            print(str(e), file=sys.stderr)
+            return make_response({"message": "Error adding the book."}, 400)

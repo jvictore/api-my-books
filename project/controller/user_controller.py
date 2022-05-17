@@ -1,7 +1,7 @@
 from app import app, auth
 from app import app
 from model.user_model import user_model
-from model.book_model import books
+from model.book_model import Books
 
 from flask import request, Response
 import json
@@ -9,7 +9,7 @@ import sys
 from flask_sqlalchemy import SQLAlchemy
 
 obj = user_model()
-obj2 = books()
+obj2 = Books()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
@@ -54,7 +54,7 @@ def books_get_hours_controller(avgPerPage):
 @app.route('/books/add', methods=['POST'])
 @auth.login_required
 def books_add_controller():
-    return obj.books_add_model(request.form)
+    return obj2.add(request.get_json())
 
 
 # PUTS
