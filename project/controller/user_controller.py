@@ -1,7 +1,10 @@
 from app import app, auth
 from app import app
 from model.user_model import user_model
-from flask import request
+from model.book_model import books
+
+from flask import request, Response
+import json
 import sys
 from flask_sqlalchemy import SQLAlchemy
 
@@ -14,7 +17,7 @@ if __name__ == "__main__":
 @app.route('/books/getall')
 @auth.login_required
 def books_get_all_controller():
-    return obj.books_get_all_model()
+    return books.get_all()
 
 @app.route('/books/getall/author')
 @auth.login_required
