@@ -71,4 +71,10 @@ class books(db.Model):
         pages = db.session.query(db.func.sum(books.pages)).scalar()
         print(str(pages), file=sys.stderr)
         
-        return make_response({"total": pages }, 200)
+        return make_response({"Total pages": pages }, 200)
+
+    def get_total_reading_time(self, avg):
+        pages = db.session.query(db.func.sum(books.pages)).scalar()
+        reading_time = int(pages) * int(avg)
+        
+        return make_response({"Reading time": reading_time }, 200)
