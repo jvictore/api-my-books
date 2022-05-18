@@ -137,3 +137,12 @@ class Books(db.Model):
         except Exception as e:
             print(str(e), file=sys.stderr)
             return make_response({'message': "Error deleting the book."}, 400)
+
+    def remove_all(self):
+        try:
+            db.session.query(Books).delete()
+            db.session.commit()
+            return make_response({"message": "Books deleted successfully."}, 200)
+        except Exception as e:
+            print(str(e), file=sys.stderr)
+            return make_response({'message': "Error deleting the books."}, 400)

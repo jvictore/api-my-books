@@ -73,4 +73,4 @@ def books_remove_controller(id):
 @app.route('/books/removeall', methods=['DELETE'])
 @auth.login_required
 def books_remove_all_controller():
-    return obj.books_remove_all_model()
+    return obj2.remove_all()
