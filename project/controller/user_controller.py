@@ -61,14 +61,14 @@ def books_add_controller():
 @app.route('/books/update', methods=['PUT'])
 @auth.login_required
 def books_update_controller():
-    return obj.books_update_model(request.form)
+    return obj2.update(request.get_json())
 
 
 # DELETES
 @app.route('/books/remove/<id>', methods=['DELETE'])
 @auth.login_required
 def books_remove_controller(id):
-    return obj.books_remove_model(id)
+    return obj2.remove_one_id(id)
 
 @app.route('/books/removeall', methods=['DELETE'])
 @auth.login_required

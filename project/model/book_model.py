@@ -83,7 +83,6 @@ class Books(db.Model):
 
 
     # POSTS
-
     def add(self, body):
         try:
             book = Books(author = body["author"],
@@ -101,3 +100,40 @@ class Books(db.Model):
         except Exception as e:
             print(str(e), file=sys.stderr)
             return make_response({"message": "Error adding the book."}, 400)
+
+    # PUTS
+    def update(self, body):
+        book = Books.query.filter_by(id=body['id']).first()
+        try:
+            if ('author' in body):
+                book.author = body['author']
+            if ('genre' in body):
+                book.genre = body['genre']
+            if ('language' in body):
+                book.language = body['language']
+            if ('name' in body):
+                book.name = body['name']
+            if ('publication_date' in body):
+                book.publication_date = body['publication_date']
+            if ('publisher' in body):
+                book.publisher = body['publisher']
+            if ('pages' in body):
+                book.pages = body['pages']
+            db.session.add(book)
+            db.session.commit()
+            return make_response({"message": "Book updated successfully."}, 200)
+
+        except Exception as e:
+            print(str(e), file=sys.stderr)
+            return make_response({'message': "Error updating the book."}, 400)
+
+    # DELETE
+    def remove_one_id(self, id):
+        book = Books.query.filter_by(id=id).first()
+        try:
+            db.session.delete(book)
+            db.session.commit()
+            return make_response({"message": "Book deleted successfully."}, 200)
+        except Exception as e:
+            print(str(e), file=sys.stderr)
+            return make_response({'message': "Error deleting the book."}, 400)
