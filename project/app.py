@@ -1,11 +1,7 @@
-from enum import auto
-from urllib import response
-from flask import Flask, Response
+from flask import Flask
 from flask_httpauth import HTTPBasicAuth
 from flask import make_response
-import json
 from model.book_model import db
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True

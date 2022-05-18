@@ -2,7 +2,6 @@ from app import app, auth
 from app import app
 from model.book_model import Books
 from flask import request
-from flask_sqlalchemy import SQLAlchemy
 
 obj = Books()
 
