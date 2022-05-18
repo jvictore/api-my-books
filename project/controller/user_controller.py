@@ -1,11 +1,7 @@
 from app import app, auth
 from app import app
-from model.user_model import user_model
 from model.book_model import Books
-
-from flask import request, Response
-import json
-import sys
+from flask import request
 from flask_sqlalchemy import SQLAlchemy
 
 obj = Books()
