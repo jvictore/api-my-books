@@ -23,11 +23,7 @@
  <a href="#pre-requisites">Pre-Requisites</a> • 
  <a href="#how-to-run">How to run</a> • 
  <a href="#how-to-terminate">How to terminate</a> • 
-
- <h4> 
-	🚧  Project in development...  🚧
-</h4>
-	
+ 
 ## Objective:
 <h4> 
 	The objective of this project is to understand how a modern API based on microservices is developed and how it works. The project is an API which you can interact to store, list, update and remove the books you have read. Different features like "Get total of pages read of all books" will be added over time.
@@ -37,8 +33,6 @@
 - [x] Get all books read.
 - [x] Get all books by author name.
 - [x] Get all books by publisher.
-- [ ] Get all books by genre.
-- [ ] Get all books before date.
 - [x] Get one specific book by id.
 - [x] Get one specific book by name.
 - [x] Add new book.
