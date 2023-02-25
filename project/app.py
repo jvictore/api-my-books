@@ -10,7 +10,7 @@ auth = HTTPBasicAuth()
 
 db.init_app(app)
 
-
+# teste
 
 @auth.verify_password
 def authenticate (username, password):
